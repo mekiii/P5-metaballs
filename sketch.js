@@ -5,7 +5,7 @@
 
 let blob;
 let yoff = 0;
-let threshold = 1000;
+let threshold = 900;
 
 class Blob {
 
@@ -53,7 +53,7 @@ var blobs = []
 function setup() {
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB);
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 12; i++) {
     blobs.push(new Blob(random(windowWidth), random(windowHeight)));
   };
 }
