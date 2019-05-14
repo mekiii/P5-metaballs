@@ -51,6 +51,7 @@ class Blob {
 var blobs = []
 
 function setup() {
+  colorMode(RGB, 255, 255, 255, 1);
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB);
   for (let i = 0; i < 12; i++) {
@@ -70,7 +71,7 @@ function draw() {
         let d = v1.dist(v2);
         sum += 150 * blobs[j].r/d;
         if (sum > threshold) {
-          fill(sum)
+          fill(sum, 0.4)
           ellipse(w, h, 10,10)
         }
       }
