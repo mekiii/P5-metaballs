@@ -5,7 +5,7 @@
 
 let blob;
 let yoff = 0;
-let threshold = 400;
+let threshold = 900;
 
 class Blob {
 
@@ -28,8 +28,7 @@ class Blob {
 
   show() {
     noStroke();
-    fill(0,0.2);
-    //ellipse(this.x, this.y, this.r);
+    fill(213,244,220,0.4);
     push();
     translate(this.x, this.y);
     beginShape();
@@ -53,16 +52,17 @@ var blobs = []
 
 function setup() {
   colorMode(RGB, 255, 255, 255, 1);
-  createCanvas(windowWidth, windowHeight);
-  colorMode(HSB);
-  for (let i = 0; i < 4; i++) {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  for (let i = 0; i < 8; i++) {
     blobs.push(new Blob(random(windowWidth), random(windowHeight)));
   };
 }
 
 
 function draw() {
-  background(255);
+  background(57,82,96,1);
+  blendMode(ADD);
+  translate(-windowWidth/2,-windowHeight/2,0)
   for (let w = 0; w < windowWidth; w += 10) {
     for (let h = 0; h < windowHeight; h += 10) {
       let sum = 0;
@@ -72,9 +72,9 @@ function draw() {
         let d = v1.dist(v2);
         sum += 150 * blobs[j].r / d;
         if (sum > threshold) {
-          let color = map(sum, 0, sum, sum, 0);
+          let color = sum;
           fill(color, 0.4);
-          ellipse(w, h, 3, 3);
+          ellipse(w, h, 20, 20);
         }
       }
     }
